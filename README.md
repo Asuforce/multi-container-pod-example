@@ -1,6 +1,6 @@
 # Multi container pod example
 
-## How to start
+## How to start on local
 
 ### preparation
 
@@ -29,13 +29,13 @@ $ make kubectl-create-example
 
 http://localhost:30000/
 
-#### Scrape targets
+#### Scraping targets
 
 http://localhost:30000/targets
 
 &nbsp;
 
-### App URL
+### App
 
 #### Serve from nginx
 http://localhost:31000
