@@ -12,7 +12,7 @@ docker-build-app-local: gradlew-clean-build
 docker-push-app-local: docker-build-app-local
 	docker push localhost:5000/multi-container-pod-example-app:latest
 
-# kubectl apply/delete
+# kubectl apply/delete/get
 kubectl-create-example:
 	kubectl apply -f ./manifests -R
 kubectl-delete-example:
