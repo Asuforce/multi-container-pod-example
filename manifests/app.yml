@@ -17,12 +17,12 @@ spec:
       annotations:
         # for multi-container-pod-example-nginx
         prometheus.io/scrape_0: "true"
-        prometheus.io/port_0: "18080"
+        prometheus.io/port_0: "9113"
         prometheus.io/path_0: /metrics
         # for multi-container-pod-example-app
         prometheus.io/scrape_1: "true"
         prometheus.io/port_1: "28080"
-        prometheus.io/path_1: /metrics
+        prometheus.io/path_1: /actuator/prometheus
     spec:
       containers:
         - name: multi-container-pod-example-nginx
@@ -31,11 +31,11 @@ spec:
             - containerPort: 80
           livenessProbe:
             httpGet:
-              path: /health/liveness
+              path: /liveness
               port: 18080
           readinessProbe:
             httpGet:
-              path: /health/readiness
+              path: /readiness
               port: 18080
         - name: multi-container-pod-example-app
           image: localhost:5000/multi-container-pod-example-app:latest
@@ -44,12 +44,12 @@ spec:
           livenessProbe:
             httpGet:
               # https://docs.spring.io/spring-boot/docs/2.3.3.RELEASE/reference/html/production-ready-features.html#production-ready-kubernetes-probes
-              path: /health/liveness
+              path: /actuator/health/liveness
               port: 28080
           readinessProbe:
             httpGet:
               # https://docs.spring.io/spring-boot/docs/2.3.3.RELEASE/reference/html/production-ready-features.html#production-ready-kubernetes-probes
-              path: /health/readiness
+              path: /actuator/health/readiness
               port: 28080
 
 ---

@@ -5,6 +5,3 @@ management:
     web:
       exposure:
         include: info, health, prometheus
-      base-path: /
-      path-mapping:
-        prometheus: metrics
