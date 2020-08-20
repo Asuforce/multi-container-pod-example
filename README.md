@@ -37,7 +37,7 @@ http://localhost:30000/targets
 
 #### Scraped metrics
 
-[Example PromQL](http://localhost:30000/graph?g0.range_input=30m&g0.expr=rate(nginx_http_requests_total%7Binstance%3D~%22.*%3A9113%22%7D%5B1m%5D)&g0.tab=0&g1.range_input=1h&g1.expr=jvm_memory_used_bytes%7Barea%3D%22heap%22%2C%20instance%3D~%22.*%3A28080%22%7D&g1.tab=0)
+[Example PromQL](http://localhost:30000/graph?g0.range_input=30m&g0.expr=rate(nginx_http_requests_total%7Binstance%3D~%22.*%3A9113%22%7D%5B1m%5D)&g0.tab=0&g1.range_input=1h&g1.expr=jvm_memory_used_bytes%7Barea%3D%22heap%22%2C%20instance%3D~%22.*%3A28080%22%7D&g1.tab=0&g2.range_input=1h&g2.expr=container_memory_working_set_bytes%7Bcontainer%3D~%22multi-container-pod-example-.*%22%7D&g2.tab=0)
 
 ##### Example nginx metrics
 
@@ -46,6 +46,10 @@ http://localhost:30000/targets
 ##### Example Java app metrics
 
 ![](http://static.matsumana.info/blog/jvm_metrics_example.png)
+
+##### Example Container metrics
+
+![](http://static.matsumana.info/blog/container_metrics_example.png)
 
 &nbsp;
 
